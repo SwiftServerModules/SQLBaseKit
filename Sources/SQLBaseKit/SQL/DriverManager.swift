@@ -1,6 +1,8 @@
 import Foundation
+import Logging
 
 public class DriverManager {
+  static let logger: Logger = Logger(label: "DriverManager")
 
   init() {}
 
@@ -54,6 +56,18 @@ public class DriverManager {
     let fileManager = FileManager.default
     let currentPath = fileManager.currentDirectoryPath
     let dyLibName = dyLibNameForDriver(driverType)
+    // if ran from inside .build folder for respective
+    if currentPath.hasSuffix("release") || currentPath.hasSuffix("debug") {
+      return
+        currentPath + "/" + dyLibName
+    }
+    // FIXME - update with platfrom specific path
+    #if DEBUG
+      print("Not App Store or TestFlight build")
+    #else
+      print("App Store or TestFlight build")
+    #endif
+    logger.warning("Please update with platfrom specific path")
     return
       currentPath + "/" + dyLibName
   }
