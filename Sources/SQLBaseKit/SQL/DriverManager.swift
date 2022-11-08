@@ -33,25 +33,35 @@ public class DriverManager {
     }
   }
 
-  public static func getConnection(url: String?, properties: [String: String]) -> Connection {
-
-    guard let driverType = properties["driverType"] else { fatalError("Driver type not defined") }
-    let driverInstance = loadDriverForType(driverType)
+  public static func getConnection(url: String?, driver: Dialect, properties: [String: String])
+    -> Connection
+  {
+    let driverInstance = loadDriverForType(driver)
     guard let hostname: String = url else { fatalError("url is null") }
     print("Starting Database Connection to \(hostname)")
     // initilize driver here
     return driverInstance.connect(url: url, properties: properties)
   }
 
-  static func loadDriverForType(_ driverType: String) -> Driver {
+  static func loadDriverForType(_ driverType: Dialect) -> Driver {
     let mappedDylibPath = getLibPathForDriver(driverType)
-    let aDriver = plugin(driverType: driverType, at: mappedDylibPath)
+    let aDriver = plugin(driverType: driverType.rawValue, at: mappedDylibPath)
     return aDriver
   }
 
-  static func getLibPathForDriver(_ driverPath: String) -> String {
+  static func getLibPathForDriver(_ driverType: Dialect) -> String {
     // TODO - map path against driver
+    let fileManager = FileManager.default
+    let currentPath = fileManager.currentDirectoryPath
+    let dyLibName = dyLibNameForDriver(driverType)
     return
-      ""
+      currentPath + "/" + dyLibName
+  }
+
+  static func dyLibNameForDriver(_ driverType: Dialect) -> String {
+    switch driverType {
+    case .mysql:
+      return "libMySqlKit.dylib"
+    }
   }
 }
