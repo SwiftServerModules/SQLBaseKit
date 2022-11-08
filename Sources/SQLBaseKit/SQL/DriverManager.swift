@@ -10,9 +10,9 @@ public class DriverManager {
 
   static func plugin(driverType: String, at path: String) -> Driver {
     let openRes = dlopen(path, RTLD_NOW | RTLD_LOCAL)
-    if openRes != nil {
+    if let or = openRes {
       defer {
-        dlclose(openRes)
+        dlclose(or)
       }
 
       let symbolName = driverType
