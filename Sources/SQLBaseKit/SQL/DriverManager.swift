@@ -35,6 +35,14 @@ public class DriverManager {
     }
   }
 
+  public static func getConnection(url: String?) -> Connection {
+    return getConnection(url: url, properties: [:])
+  }
+
+  public static func getConnection(url: String?, properties: [String: String]) -> Connection {
+    return getConnection(url: url, driver: .mysql, properties: [:])
+  }
+
   public static func getConnection(url: String?, driver: Dialect, properties: [String: String])
     -> Connection
   {
