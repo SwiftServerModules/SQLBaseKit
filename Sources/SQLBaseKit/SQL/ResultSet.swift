@@ -59,14 +59,14 @@ public protocol ResultSet {
   func getDate(columnLabel: String) throws -> Date?
 
   // Byte
-  func getByte(columnIndex: Int) throws -> UInt8?
+  func getByte(columnIndex: Int) throws -> Int8?
 
-  func getByte(columnLabel: String) throws -> UInt8?
+  func getByte(columnLabel: String) throws -> Int8?
 
   // Bytes
-  func getBytes(columnIndex: Int) throws -> [UInt8]?
+  func getBytes(columnIndex: Int) throws -> [Int8]?
 
-  func getBytes(columnLabel: String) throws -> [UInt8]?
+  func getBytes(columnLabel: String) throws -> [Int8]?
 
   // Object
   func getObject(columnIndex: Int) throws -> Any?
@@ -109,13 +109,13 @@ public protocol ResultSet {
 
   func updateDate(columnIndex: Int, x: Date) throws
 
-  func updateByte(columnLabel: String, x: UInt8) throws
+  func updateByte(columnLabel: String, x: Int8) throws
 
-  func updateByte(columnIndex: Int, x: UInt8) throws
+  func updateByte(columnIndex: Int, x: Int8) throws
 
-  func updateBytes(columnLabel: String, x: [UInt8]) throws
+  func updateBytes(columnLabel: String, x: [Int8]) throws
 
-  func updateBytes(columnIndex: Int, x: [UInt8]) throws
+  func updateBytes(columnIndex: Int, x: [Int8]) throws
 
   func updateObject(columnLabel: String, x: Any) throws
 
