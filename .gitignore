@@ -100,3 +100,4 @@ iOSInjectionProject/
 *.vsix
 
 Package.resolved
+.idea

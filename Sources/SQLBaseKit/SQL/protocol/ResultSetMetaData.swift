@@ -1,0 +1,2 @@
+public protocol ResultSetMetaData: Wrapper {
+}

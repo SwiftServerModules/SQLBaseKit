@@ -4,10 +4,10 @@ public class DriverPropertyInfo {
     var description: String?
     var required: Bool = false
     var choices: [String] = []
-
+    
     init(name: String, value: String) {
         self.name = name
         self.value = value
     }
-
+    
 }

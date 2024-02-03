@@ -1,7 +1,7 @@
 public protocol Wrapper {
-    associatedtype T
-
+    //    associatedtype T
+    
     func unwrap<T>(iface: T) throws -> T
-
+    
     func isWrapperFor(iface: Any) throws -> Bool
 }

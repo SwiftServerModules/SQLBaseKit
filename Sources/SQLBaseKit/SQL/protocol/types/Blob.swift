@@ -1,7 +1,7 @@
 import Foundation
 
 public protocol Blob {
-
+    
     func length() throws -> Int64
     func getBytes(pos: Int64, length: Int) throws -> [Int8]
     func getBinaryStream() throws -> InputStream
@@ -13,5 +13,5 @@ public protocol Blob {
     func truncate(len: Int64) throws
     func free() throws
     func getBinaryStream(pos: Int64, length: Int64) throws -> InputStream
-
+    
 }

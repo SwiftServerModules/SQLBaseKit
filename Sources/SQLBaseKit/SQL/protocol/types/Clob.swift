@@ -14,5 +14,5 @@ public protocol Clob {
     func truncate(len: Int64) throws
     func free() throws
     func getCharacterStream(pos: Int64, length: Int64) throws -> Any
-
+    
 }

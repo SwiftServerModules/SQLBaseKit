@@ -1,3 +1,3 @@
 public enum Dialect: String {
-  case mysql = "MySqlDriver"
+    case mysql = "MySqlDriver"
 }

@@ -1,28 +1,28 @@
 public protocol DatabaseMetaData: Wrapper {
-
-    func allProceduresAreCallable() throws -> boolean
-    func allTablesAreSelectable() throws -> boolean
+    
+    func allProceduresAreCallable() throws -> Bool
+    func allTablesAreSelectable() throws -> Bool
     func getURL() throws -> String
     func getUserName() throws -> String
-    func isReadOnly() throws -> boolean
-    func nullsAreSortedHigh() throws -> boolean
-    func nullsAreSortedLow() throws -> boolean
-    func nullsAreSortedAtStart() throws -> boolean
-    func nullsAreSortedAtEnd() throws -> boolean
+    func isReadOnly() throws -> Bool
+    func nullsAreSortedHigh() throws -> Bool
+    func nullsAreSortedLow() throws -> Bool
+    func nullsAreSortedAtStart() throws -> Bool
+    func nullsAreSortedAtEnd() throws -> Bool
     func getDatabaseProductName() throws -> String
     func getDatabaseProductVersion() throws -> String
     func getDriverName() throws -> String
     func getDriverVersion() throws -> String
-    func usesLocalFiles() throws -> boolean
-    func usesLocalFilePerTable() throws -> boolean
-    func supportsMixedCaseIdentifiers() throws -> boolean
-    func storesUpperCaseIdentifiers() throws -> boolean
-    func storesLowerCaseIdentifiers() throws -> boolean
-    func storesMixedCaseIdentifiers() throws -> boolean
-    func supportsMixedCaseQuotedIdentifiers() throws -> boolean
-    func storesUpperCaseQuotedIdentifiers() throws -> boolean
-    func storesLowerCaseQuotedIdentifiers() throws -> boolean
-    func storesMixedCaseQuotedIdentifiers() throws -> boolean
+    func usesLocalFiles() throws -> Bool
+    func usesLocalFilePerTable() throws -> Bool
+    func supportsMixedCaseIdentifiers() throws -> Bool
+    func storesUpperCaseIdentifiers() throws -> Bool
+    func storesLowerCaseIdentifiers() throws -> Bool
+    func storesMixedCaseIdentifiers() throws -> Bool
+    func supportsMixedCaseQuotedIdentifiers() throws -> Bool
+    func storesUpperCaseQuotedIdentifiers() throws -> Bool
+    func storesLowerCaseQuotedIdentifiers() throws -> Bool
+    func storesMixedCaseQuotedIdentifiers() throws -> Bool
     func getIdentifierQuoteString() throws -> String
     func getSQLKeywords() throws -> String
     func getNumericFunctions() throws -> String
@@ -116,7 +116,7 @@ public protocol DatabaseMetaData: Wrapper {
     func supportsDataManipulationTransactionsOnly() throws -> Bool
     func dataDefinitionCausesTransactionCommit() throws -> Bool
     func dataDefinitionIgnoredInTransactions() throws -> Bool
-
+    
     func getProcedures(
         catalog: String,
         schemaPattern: String,
@@ -143,7 +143,7 @@ public protocol DatabaseMetaData: Wrapper {
         tableNamePattern: String,
         columnNamePattern: String
     )
-        throws -> ResultSet
+    throws -> ResultSet
     func getColumnPrivileges(
         catalog: String,
         schema: String,
@@ -167,7 +167,7 @@ public protocol DatabaseMetaData: Wrapper {
         schema: String,
         table: String
     ) throws -> ResultSet
-
+    
     func getPrimaryKeys(
         catalog: String,
         schema: String,
@@ -191,7 +191,7 @@ public protocol DatabaseMetaData: Wrapper {
         foreignSchema: String,
         foreignTable: String
     ) throws -> ResultSet
-
+    
     func getTypeInfo() throws -> ResultSet
     func getIndexInfo(
         catalog: String,
@@ -200,10 +200,10 @@ public protocol DatabaseMetaData: Wrapper {
         unique: Bool,
         approximate: Bool
     )
-        throws -> ResultSet
+    throws -> ResultSet
     func supportsResultSetType(type: Int) throws -> Bool
     func supportsResultSetConcurrency(type: Int, concurrency: Int)
-        throws -> Bool
+    throws -> Bool
     func ownUpdatesAreVisible(type: Int) throws -> Bool
     func ownDeletesAreVisible(type: Int) throws -> Bool
     func ownInsertsAreVisible(type: Int) throws -> Bool
@@ -220,7 +220,7 @@ public protocol DatabaseMetaData: Wrapper {
         typeNamePattern: String,
         types: [Int]
     )
-        throws -> ResultSet
+    throws -> ResultSet
     func getConnection() throws -> Connection
     func supportsSavepoints() throws -> Bool
     func supportsNamedParameters() throws -> Bool
@@ -242,7 +242,7 @@ public protocol DatabaseMetaData: Wrapper {
         typeNamePattern: String,
         attributeNamePattern: String
     )
-        throws -> ResultSet
+    throws -> ResultSet
     func supportsResultSetHoldability(holdability: Int) throws -> Bool
     func getResultSetHoldability() throws -> Int
     func getDatabaseMajorVersion() throws -> Int
@@ -257,7 +257,7 @@ public protocol DatabaseMetaData: Wrapper {
     func supportsStoredFunctionsUsingCallSyntax() throws -> Bool
     func autoCommitFailureClosesAllResultSets() throws -> Bool
     func getClientInfoProperties()
-        throws -> ResultSet
+    throws -> ResultSet
     func getFunctions(
         catalog: String,
         schemaPattern: String,
@@ -275,6 +275,6 @@ public protocol DatabaseMetaData: Wrapper {
         tableNamePattern: String,
         columnNamePattern: String
     )
-        throws -> ResultSet
+    throws -> ResultSet
     func generatedKeyAlwaysReturned() throws -> Bool
 }

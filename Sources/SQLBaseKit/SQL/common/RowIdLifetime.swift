@@ -1,0 +1,7 @@
+public enum RowIdLifetime {
+    case ROWID_UNSUPPORTED
+    case ROWID_VALID_OTHER
+    case ROWID_VALID_SESSION
+    case ROWID_VALID_TRANSACTION
+    case ROWID_VALID_FOREVER
+}
